@@ -1,452 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Williams Odunayo | Machine Learning Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-
-<style>
-        .dark {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark .hero-bg {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-        }
-        .dark .bg-white {
-            background-color: #2d3748 !important;
-            color: #e2e8f0;
-        }
-        .dark .bg-gray-50 {
-            background-color: #1a202c !important;
-        }
-        .dark .text-gray-600,
-        .dark .text-gray-700 {
-            color: #cbd5e0 !important;
-        }
-        .dark .border-gray-300 {
-            border-color: #4a5568 !important;
-        }
-        .dark .bg-gray-100 {
-            background-color: #2d3748 !important;
-        }
-        .dark .bg-gray-900 {
-            background-color: #111827 !important;
-        }
-        .dark .border-gray-800 {
-            border-color: #374151 !important;
-        }
-        .dark h1,
-        .dark h2,
-        .dark h3,
-        .dark h4 {
-            color: #e2e8f0 !important;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        a.text-blue-600:hover i {
-            transform: translateX(4px);
-            transition: transform 0.2s ease;
-            }
-
-
-        @media (max-width: 768px) {
-        .hire-me-btn {
-            display: none;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wills | ML Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#10b981'
+                    }
+                }
             }
         }
-  </style>
+    </script>
 </head>
 
-<body class="font-sans antialiased text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold gradient-text">Williams Odunayo</span>
-                </div>
-                <div class="flex items-center ml-4">
-                    <button id="theme-toggle" class="text-gray-700 dark:text-gray-300 focus:outline-none">
-                        <i id="theme-icon" data-feather="moon"></i>
-                    </button>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-700">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
-            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600 transition">Home</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">About</a>
-            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-600 transition">Projects</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg pt-24 pb-20 md:pt-32 md:pb-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center justify-between">
-                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                        Hi, I'm <span class="gradient-text">Williams Odunayo</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Machine Learning Engineer | Always Learning, Always Building
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">Contact Me</a>
-                        <a href="#" id="download-cv" class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition flex items-center">
-                            <i data-feather="download" class="mr-2"></i> Download CV
-                        </a>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Hero Section -->
+        <section class="mb-20">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="w-64 h-64 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-2xl">
+                        <i data-feather="user" class="w-32 h-32"></i>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center" data-aos="fade-left">
-                    <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
-                            <img src="http://static.photos/technology/640x360/42" alt="Profile" class="w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-white" loading="lazy">
-                        </div>
-                        <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-full shadow-lg">
-                            <div class="bg-blue-100 p-3 rounded-full">
-                                <i data-feather="cpu" class="text-blue-600 w-6 h-6"></i>
-                            </div>
-                        </div>
+                <div class="md:w-2/3">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Williams Odunayo</h1>
+                    <h2 class="text-2xl md:text-3xl text-secondary mb-4">Machine Learning Engineer</h2>
+                    <p class="text-xl italic opacity-80 mb-6">"Always Learning, Always Building."</p>
+                    <p class="text-lg mb-6">Building real, usable AI and ML systems that work — practical, deployable, and impactful.</p>
+                    <div class="flex gap-4">
+                        <a href="#projects" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all font-medium">View Projects</a>
+                        <a href="#contact" class="border border-primary text-primary hover:bg-primary/10 px-6 py-3 rounded-lg transition-all font-medium">Contact Me</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">About Me</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            </div>
-            <div class="md:flex items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
-                        <p class="text-gray-600 mb-4">
-                            I got into tech because I was curious about one thing - how machines learn from data and start to understand the world around us. 
-                            That curiosity pulled me deep into computer vision, model training, and turning AI ideas into things people can actually use.
-                        </p>
-                        <p class="text-gray-600 mb-4">
-                            Now, I work as a Machine Learning Engineer, building real systems that do real work. I care about making models not just 
-                            accurate, but fast, deployable, and easy to use.
-                        </p>
-                        <p class="text-gray-600 mb-6">
-                            Next up, I'm diving into more autonomous, agent-like AI systems - ones that don't just predict, but can decide, adapt, and collaborate. 
-                            My mindset stays the same: learn quickly, build what works, and keep stretching what AI is capable of.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">PyTorch</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">LangChain</span>
-                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Flask</span>
-                            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
+        <!-- Skills Section -->
+        <section id="skills" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 text-center">Core Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="code" class="text-primary"></i>
                         </div>
-                </div>
-                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
-                <h3 class="text-2xl font-semibold mb-6">My Skills</h3>
-                    <div class="space-y-6">
-
-                        <div>
-                            <h4 class="font-medium text-lg mb-1 text-blue-600 dark:text-blue-400">Machine Learning</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
-                                Building, training, and deploying ML models that solve real-world problems; from classification and regression 
-                                to recommendation systems and anomaly detection.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="font-medium text-lg mb-1 text-purple-600 dark:text-purple-400">Deep Learning</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
-                                Experienced with CNNs, RNNs, and Transformers for tasks like medical imaging, emotion recognition, and NLP pipelines.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="font-medium text-lg mb-1 text-green-600 dark:text-green-400">Data Engineering</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
-                                Skilled in preprocessing, feature engineering, and creating efficient data pipelines for scalable training and evaluation.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="font-medium text-lg mb-1 text-yellow-600 dark:text-yellow-400">Cloud & MLOps</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
-                                Deploying models with Flask, Docker, and Render. Familiar with CI/CD, versioning, and model optimization for production environments.
-                            </p>
-                        </div>
+                        <h3 class="text-xl font-semibold">Languages</h3>
                     </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">My Projects</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- BrainScan AI -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden project-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <img src="http://static.photos/technology/640x360/101" alt="BrainScan AI" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">BrainScan AI – Brain Tumor Detection</h3>
-                        <p class="text-gray-600 mb-4">
-                            Deep learning model for MRI-based brain tumor classification with 90%+ accuracy, deployed as a real-time Flask app using TensorFlow Lite on Render.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">TensorFlow</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">TFLite</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">OpenCV</span>
-                        </div>
-                        <a href="http://tinyurl.com/Brainscanai" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </a>
-                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            Python
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            JavaScript (basic familiarity)
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- EmotiSense -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden project-card transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <img src="http://static.photos/technology/640x360/102" alt="EmotiSense" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">EmotiSense – AI Emotion Detection</h3>
-                        <p class="text-gray-600 mb-4">
-                            Real-time facial emotion detection using TensorFlow, OpenCV, and Flask. Includes .h5 and .tflite deployment modes with optional speech feedback.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">TensorFlow</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">OpenCV</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Mediapipe</span>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="cpu" class="text-primary"></i>
                         </div>
-                        <a href="http://tinyurl.com/mooddetect" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </a>
+                        <h3 class="text-xl font-semibold">ML & DL</h3>
                     </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            TensorFlow
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            PyTorch
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            Scikit-learn
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Document-RAG System -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden project-card transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <img src="http://static.photos/technology/640x360/103" alt="Ask Your Doc" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Ask Your Doc – Document-RAG System </h3>
-                        <p class="text-gray-600 mb-4">
-                            Lightweight RAG chatbot built with Flask, LangChain, and Gemini API. Lets users chat with PDF or text files using FAISS and MiniLM embeddings.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">LangChain</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Flask</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Gemini API</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">FAISS</span>
-                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">MiniLM</span>
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="eye" class="text-primary"></i>
                         </div>
-                        <a href="http://tinyurl.com/ask-your-doc" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                        </a>
+                        <h3 class="text-xl font-semibold">Computer Vision</h3>
                     </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            OpenCV
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            Mediapipe
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            CNNs
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="message-square" class="text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">NLP</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            Transformers
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            LangChain
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-feather="chevron-right" class="w-4 h-4 text-secondary"></i>
+                            Gemini API
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="https://github.com/Wills17?tab=repositories" target="_blank" class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition">
-                    View All Projects <i data-feather="chevron-right" class="ml-2 w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-            </div>
-            <div class="md:flex">
-                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i data-feather="mail" class="text-blue-600 w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Email</h4>
-                                <p class="text-gray-600">williamsodunayo70@gmail.com</p>
+        <!-- Projects Section -->
+        <section id="projects" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 text-center">Key Projects</h2>
+            
+            <div class="space-y-12">
+                <!-- Project 1 -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <div class="bg-gray-700 aspect-video rounded-lg overflow-hidden">
+                                <img src="http://static.photos/technology/1024x576/1" alt="BrainScan AI" class="w-full h-full object-cover">
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i data-feather="phone" class="text-purple-600 w-5 h-5"></i>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-2">BrainScan AI – Brain Tumor Detection</h3>
+                            <p class="text-gray-300 mb-4">MRI-based brain tumor classification using TensorFlow & OpenCV. Achieved over 90% accuracy; deployed on Render via Flask + TFLite.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">TensorFlow</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Flask</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">TFLite</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">OpenCV</span>
                             </div>
-                            <div>
-                                <h4 class="font-medium">Phone</h4>
-                                <p class="text-gray-600">+2348151368613</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-green-100 p-3 rounded-full mr-4">
-                                <i data-feather="map-pin" class="text-green-600 w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Location</h4>
-                                <p class="text-gray-600">Nigeria</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h4 class="font-medium mb-4">Connect with me</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://github.com/Wills17" target="_blank" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
-                                <i data-feather="github" class="text-gray-700 w-5 h-5"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/williams-odunayo" target="_blank" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
-                                <i data-feather="linkedin" class="text-gray-700 w-5 h-5"></i>
-                            </a>
-                            <a href="https://x.com/Wills_Python" target="_blank" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition">
-                                <i data-feather="twitter" class="text-gray-700 w-5 h-5"></i>
+                            <a href="http://tinyurl.com/Brainscanai" target="_blank" class="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
+                                <i data-feather="play-circle" class="w-4 h-4 mr-2"></i>
+                                View Demo
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2 md:pl-16" data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
-                    <form action="https://formspree.io/f/xjkaldoq" method="POST" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" name="name" id="name" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+
+                <!-- Project 2 -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <div class="bg-gray-700 aspect-video rounded-lg overflow-hidden">
+                                <img src="http://static.photos/technology/1024x576/2" alt="EmotiSense" class="w-full h-full object-cover">
+                            </div>
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" name="email" id="email" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-2">EmotiSense – AI Emotion Detection</h3>
+                            <p class="text-gray-300 mb-4">Real-time facial emotion recognition using CNNs and Mediapipe. Supports both .h5 and .tflite models with optional voice feedback.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">TensorFlow</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">OpenCV</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Flask</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Mediapipe</span>
+                            </div>
+                            <a href="http://tinyurl.com/mooddetect" target="_blank" class="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
+                                <i data-feather="play-circle" class="w-4 h-4 mr-2"></i>
+                                View Demo
+                            </a>
                         </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <input type="text" name="subject" id="subject" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <div class="bg-gray-700 aspect-video rounded-lg overflow-hidden">
+                                <img src="http://static.photos/technology/1024x576/3" alt="Ask Your Doc" class="w-full h-full object-cover">
+                            </div>
                         </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea name="message" id="message" rows="4" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-2">Ask Your Doc – Document-RAG System</h3>
+                            <p class="text-gray-300 mb-4">Lightweight chatbot that lets users "chat" with their documents (PDF, text). Built with Flask, LangChain, Gemini API, and FAISS for embeddings.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">LangChain</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Flask</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Gemini API</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">FAISS</span>
+                            </div>
+                            <a href="http://tinyurl.com/ask-your-doc" target="_blank" class="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
+                                <i data-feather="play-circle" class="w-4 h-4 mr-2"></i>
+                                View Demo
+                            </a>
                         </div>
-                        <button type="submit"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition w-full">
-                            Send Message
-                        </button>
-                    </form>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg opacity-80">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <div class="bg-gray-700 aspect-video rounded-lg overflow-hidden">
+                                <img src="http://static.photos/technology/1024x576/4" alt="CyberSentinel" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-bold mb-2">CyberSentinel – Autonomous Threat Detection (In Progress)</h3>
+                            <p class="text-gray-300 mb-4">(In Progress) Multi-Agent Reinforcement Learning system for decentralized cyber defense. Uses adversarial training and anomaly detection.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Reinforcement Learning</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Multi-Agent Systems</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Anomaly Detection</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex md:items-center md:justify-between">
-                <div class="flex justify-center md:justify-start mb-6 md:mb-0">
-                    <span class="text-xl font-bold gradient-text">ML Engineer</span>
+        <!-- Interests Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 text-center">Interests & Future Direction</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="cpu" class="text-primary"></i>
+                    </div>
+                    <span>Agentic AI Systems</span>
                 </div>
-                <div class="flex justify-center md:justify-end space-x-6">
-                    <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                    <a href="#about" class="hover:text-blue-400 transition">About</a>
-                    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="refresh-cw" class="text-primary"></i>
+                    </div>
+                    <span>Reinforcement Learning</span>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="eye" class="text-primary"></i>
+                    </div>
+                    <span>Computer Vision</span>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="package" class="text-primary"></i>
+                    </div>
+                    <span>Production-ready AI</span>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-                <p>© 2025 Williams Odunayo. All rights reserved.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="mail" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Email</p>
+                            <p>williamsodunayo70@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="phone" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Phone</p>
+                            <p>+234 815 136 8613</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="map-pin" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Location</p>
+                            <p>Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i data-feather="github" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">GitHub</p>
+                            <a href="https://github.com/Wills17" target="_blank" class="hover:text-secondary">github.com/Wills17</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center transition-colors">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center transition-colors">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center transition-colors">
+                        <i data-feather="github"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 
-    <a href="#contact" class="fixed bottom-6 right-6 bg-blue-600 text-white px-4 py-3 rounded-full shadow-lg hover:bg-blue-700 transition">
-        Hire Me
-        </a>
+    <custom-footer></custom-footer>
 
-    <!-- Scripts -->
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Mobile menu toggle
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Download CV button
-        document.getElementById('download-cv').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Downloading CV... (This is a demo. In a real site, this would download your CV file)');
-        });
-
-        feather.replace();
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        // Check for saved theme or use preferred color scheme
-        const currentTheme = localStorage.getItem('theme') || 
-                            (prefersDarkScheme.matches ? 'dark' : 'light');
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark');
-            feather.replace();
-            themeIcon.setAttribute('data-feather', 'sun');
-        }
-
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('dark');
-            const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-            themeIcon.setAttribute('data-feather', theme === 'dark' ? 'sun' : 'moon');
-            feather.replace();
-        });
-    </script>
-
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
 </body>
 </html>
