@@ -50,3 +50,8 @@ section.visible {
     width: 32px;
     height: 32px;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
