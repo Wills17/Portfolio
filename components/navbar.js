@@ -1,7 +1,7 @@
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
       <style>
         nav {
           background: rgba(17, 24, 39, 0.9);
@@ -69,32 +69,47 @@ class CustomNavbar extends HTMLElement {
             top: 100%;
             left: 0;
             right: 0;
-            background: rgba(17, 24, 39, 0.95);
-            padding: 1rem;
+            background: rgba(17, 24, 39, 0.98);
+            padding: 1rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.3s ease-in-out;
           }
         }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
       </style>
+
       <nav>
-        <a href="/Portfolio" class="logo">
+        <a href="/" class="logo">
           <i data-feather="cpu" class="logo-icon"></i>
           Williams Odunayo
         </a>
-        <button class="mobile-menu-btn">
+
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
           <i data-feather="menu"></i>
         </button>
+
         <ul id="nav-links">
           <li><a href="#skills" class="nav-link"><i data-feather="tool"></i> Skills</a></li>
           <li><a href="#projects" class="nav-link"><i data-feather="code"></i> Projects</a></li>
           <li><a href="#contact" class="nav-link"><i data-feather="mail"></i> Contact</a></li>
+          <li><a href="docs/Williams_Odunayo_CV.pdf" target="_blank"><i data-feather="file-text"></i> CV</a></li>
         </ul>
       </nav>
     `;
 
-    // Mobile menu toggle
-    const menuBtn = this.shadowRoot.querySelector('.mobile-menu-btn');
-    const navLinks = this.shadowRoot.querySelector('#nav-links');
+    // Feather icons inside shadow DOM
+    const featherScript = document.createElement('script');
+    featherScript.src = "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js";
+    featherScript.onload = () => feather.replace({ class: 'icon', 'stroke-width': 1.5 });
+    shadow.appendChild(featherScript);
 
+    const menuBtn = shadow.querySelector('.mobile-menu-btn');
+    const navLinks = shadow.querySelector('#nav-links');
+
+    // Toggle mobile menu
     menuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('mobile-open');
       const icon = menuBtn.querySelector('i');
@@ -106,25 +121,16 @@ class CustomNavbar extends HTMLElement {
       feather.replace();
     });
 
-    // Update active link on scroll
+    // Active section highlight
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('section');
       let current = '';
-      
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 100)) {
-          current = section.getAttribute('id');
-        }
+        const top = section.offsetTop - 100;
+        if (scrollY >= top) current = section.getAttribute('id');
       });
-
-      const links = this.shadowRoot.querySelectorAll('.nav-link');
-      links.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
+      shadow.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
       });
     });
   }
