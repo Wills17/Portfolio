@@ -76,7 +76,7 @@ class CustomNavbar extends HTMLElement {
         }
       </style>
       <nav>
-        <a href="/" class="logo">
+        <a href="/index.html" class="logo">
           <i data-feather="cpu" class="logo-icon"></i>
           Williams Odunayo
         </a>
