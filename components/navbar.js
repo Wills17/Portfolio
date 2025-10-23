@@ -12,9 +12,10 @@ class CustomNavbar extends HTMLElement {
           align-items: center;
           position: sticky;
           top: 0;
-          z-index: 50;
+          z-index: 9999; /* <- Ensures it stays on top */
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .logo {
           color: white;
           font-weight: bold;
@@ -26,13 +27,16 @@ class CustomNavbar extends HTMLElement {
         .logo-icon {
           color: #6366f1;
         }
+
         ul {
           display: flex;
           gap: 1.5rem;
           list-style: none;
           margin: 0;
           padding: 0;
+          transition: all 0.3s ease-in-out;
         }
+
         a {
           color: rgba(255, 255, 255, 0.9);
           text-decoration: none;
@@ -42,20 +46,28 @@ class CustomNavbar extends HTMLElement {
           align-items: center;
           gap: 0.5rem;
         }
+
         a:hover {
           color: #10b981;
         }
+
         .nav-link.active {
           color: #10b981;
         }
+
         .mobile-menu-btn {
           display: none;
           background: none;
           border: none;
           color: white;
           cursor: pointer;
+          z-index: 10000;
         }
+
         @media (max-width: 768px) {
+          nav {
+            position: relative; /* <- Key fix: makes absolute menu visible */
+          }
           .mobile-menu-btn {
             display: block;
           }
@@ -72,12 +84,19 @@ class CustomNavbar extends HTMLElement {
             background: rgba(17, 24, 39, 0.98);
             padding: 1rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeIn 0.3s ease-in-out;
+            animation: slideDown 0.25s ease-in-out;
           }
         }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       </style>
 
@@ -86,42 +105,35 @@ class CustomNavbar extends HTMLElement {
           <i data-feather="cpu" class="logo-icon"></i>
           Williams Odunayo
         </a>
-
-        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
           <i data-feather="menu"></i>
         </button>
-
         <ul id="nav-links">
           <li><a href="#skills" class="nav-link"><i data-feather="tool"></i> Skills</a></li>
           <li><a href="#projects" class="nav-link"><i data-feather="code"></i> Projects</a></li>
           <li><a href="#contact" class="nav-link"><i data-feather="mail"></i> Contact</a></li>
-          <li><a href="docs/Williams_Odunayo_CV.pdf" target="_blank"><i data-feather="file-text"></i> CV</a></li>
+          <li><a href="assets/Williams_Odunayo_CV.pdf" target="_blank"><i data-feather="file-text"></i> CV</a></li>
         </ul>
       </nav>
     `;
 
-    // Feather icons inside shadow DOM
+    // Feather icons inside Shadow DOM
     const featherScript = document.createElement('script');
     featherScript.src = "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js";
-    featherScript.onload = () => feather.replace({ class: 'icon', 'stroke-width': 1.5 });
+    featherScript.onload = () => feather.replace();
     shadow.appendChild(featherScript);
 
+    // Mobile toggle
     const menuBtn = shadow.querySelector('.mobile-menu-btn');
     const navLinks = shadow.querySelector('#nav-links');
-
-    // Toggle mobile menu
     menuBtn.addEventListener('click', () => {
       navLinks.classList.toggle('mobile-open');
       const icon = menuBtn.querySelector('i');
-      if (navLinks.classList.contains('mobile-open')) {
-        icon.setAttribute('data-feather', 'x');
-      } else {
-        icon.setAttribute('data-feather', 'menu');
-      }
+      icon.setAttribute('data-feather', navLinks.classList.contains('mobile-open') ? 'x' : 'menu');
       feather.replace();
     });
 
-    // Active section highlight
+    // Highlight active link on scroll
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('section');
       let current = '';
