@@ -54,6 +54,7 @@
                     <div class="flex gap-4">
                         <a href="#projects" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all font-medium">View Projects</a>
                         <a href="#contact" class="border border-primary text-primary hover:bg-primary/10 px-6 py-3 rounded-lg transition-all font-medium">Contact Me</a>
+                        <a href="docs/Williams_Odunayo_CV.pdf" target="_blank" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition">Download CV</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,7 @@
         <section id="skills" class="mb-20">
             <h2 class="text-3xl font-bold mb-8 text-center" data-aos="zoom-in">Tools & Frameworks</h2> 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-800 p-6 rounded-xl" data-aos="fade-left">
+                <div class="bg-gray-800 p-6 rounded-xl project-card" data-aos="fade-left">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                             <i data-feather="code" class="text-primary"></i>
@@ -144,7 +145,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-gray-800 p-6 rounded-xl" data-aos="fade-right">
+                <div class="bg-gray-800 p-6 rounded-xl project-card" data-aos="fade-right">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                             <i data-feather="cpu" class="text-primary"></i>
@@ -167,7 +168,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-gray-800 p-6 rounded-xl" data-aos="fade-left">
+                <div class="bg-gray-800 p-6 rounded-xl project-card" data-aos="fade-left">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                             <i data-feather="eye" class="text-primary"></i>
@@ -190,7 +191,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-gray-800 p-6 rounded-xl" data-aos="fade-right">
+                <div class="bg-gray-800 p-6 rounded-xl project-card" data-aos="fade-right">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                             <i data-feather="message-square" class="text-primary"></i>
@@ -281,7 +282,7 @@
                             </div>
                         </div>
                         <div class="md:w-2/3">
-                            <h3 class="text-2xl font-bold mb-2">Ask Your Doc – Document-RAG System</h3>
+                            <h3 class="text-2xl font-bold mb-2">Ask Your Doc – AI Document Chatbot</h3>
                             <p class="text-gray-300 mb-4">Lightweight chatbot that lets users "chat" with their documents (PDF, text). Built with Flask, LangChain, Gemini API, and FAISS for embeddings.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">LangChain</span>
@@ -333,30 +334,69 @@
         <!-- Interests Section -->
         <section class="mb-20">
             <h2 class="text-3xl font-bold mb-8 text-center" data-aos="zoom-in">Interests & Future Direction</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-right">
                     <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                         <i data-feather="cpu" class="text-primary"></i>
                     </div>
                     <span>Agentic AI Systems</span>
                 </div>
+
                 <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-left">
                     <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                         <i data-feather="refresh-cw" class="text-primary"></i>
                     </div>
                     <span>Reinforcement Learning</span>
                 </div>
+
                 <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-right">
                     <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                         <i data-feather="eye" class="text-primary"></i>
                     </div>
                     <span>Computer Vision</span>
                 </div>
+
                 <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-left">
                     <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                         <i data-feather="package" class="text-primary"></i>
                     </div>
                     <span>Production-ready AI</span>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-right">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="activity" class="text-primary"></i>
+                    </div>
+                    <span>AI Applications in Healthcare & Cybersecurity</span>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-left">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="aperture" class="text-primary"></i>
+                    </div>
+                    <span>Generative AI</span>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-right">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="map-pin" class="text-primary"></i>
+                    </div>
+                    <span>Geospatial Intelligence</span>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-left">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="github" class="text-primary"></i>
+                    </div>
+                    <span>Open-source Projects</span>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl flex items-center gap-4" data-aos="fade-right">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                        <i data-feather="layers" class="text-primary"></i>
+                    </div>
+                    <span>Real-World ML Systems</span>
                 </div>
             </div>
         </section>
