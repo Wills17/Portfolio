@@ -6,26 +6,24 @@ class CustomNavbar extends HTMLElement {
         :host {
           display: block;
           position: relative;
-          z-index: 100;
+          z-index: 1000;
         }
 
         nav {
-          background: rgba(17, 24, 39, 0.9);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          background: rgba(17, 24, 39, 0.95);
           backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           padding: 1rem 1.5rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;             
-          width: 100%;
           box-sizing: border-box;
-          overflow-x: hidden;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
+          z-index: 1000;
         }
 
         .logo {
@@ -36,6 +34,7 @@ class CustomNavbar extends HTMLElement {
           align-items: center;
           gap: 0.5rem;
           text-decoration: none;
+          white-space: nowrap;
         }
 
         .logo-icon {
@@ -53,24 +52,24 @@ class CustomNavbar extends HTMLElement {
         a {
           color: rgba(255, 255, 255, 0.9);
           text-decoration: none;
-          transition: color 0.2s ease;
           font-weight: 500;
+          transition: color 0.2s ease;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.3rem;
         }
 
         a:hover {
           color: #10b981;
         }
 
+        /* Mobile button */
         .mobile-menu-btn {
           display: none;
           background: none;
           border: none;
-          color: white;
           cursor: pointer;
-          z-index: 101;
+          z-index: 1100;
         }
 
         .mobile-menu-btn svg {
@@ -79,7 +78,7 @@ class CustomNavbar extends HTMLElement {
           stroke: white;
           stroke-width: 2;
           fill: none;
-          transition: all 0.2s ease;
+          pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -94,13 +93,15 @@ class CustomNavbar extends HTMLElement {
           ul.mobile-open {
             display: flex;
             flex-direction: column;
-            position: absolute;
-            top: 100%;
+            align-items: center;
+            position: fixed;
+            top: 64px; /* just below navbar */
             left: 0;
             right: 0;
             background: rgba(17, 24, 39, 0.98);
             padding: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             animation: fadeDown 0.25s ease;
           }
 
@@ -121,7 +122,7 @@ class CustomNavbar extends HTMLElement {
         </a>
 
         <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <line x1="3" y1="6" x2="21" y2="6" />
             <line x1="3" y1="12" x2="21" y2="12" />
             <line x1="3" y1="18" x2="21" y2="18" />
@@ -129,24 +130,34 @@ class CustomNavbar extends HTMLElement {
         </button>
 
         <ul id="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     `;
 
     const menuBtn = shadow.querySelector(".mobile-menu-btn");
-    const navLinks = shadow.querySelector("#nav-links");
     const menuIcon = shadow.querySelector(".menu-icon");
+    const navLinks = shadow.querySelector("#nav-links");
 
+    // Toggle dropdown on click
     menuBtn.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("mobile-open");
-      // Toggle between hamburger and X
-      menuIcon.innerHTML = open
-        ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
-        : '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';
+      const isOpen = navLinks.classList.toggle("mobile-open");
+      menuIcon.innerHTML = isOpen
+        ? `<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>`
+        : `<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>`;
+    });
+
+    // Auto close menu when section link is clicked
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (navLinks.classList.contains("mobile-open")) {
+          navLinks.classList.remove("mobile-open");
+          menuIcon.innerHTML = `<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>`;
+        }
+      });
     });
   }
 }

@@ -69,24 +69,6 @@ class CustomFooter extends HTMLElement {
 
       <footer>
         <div class="footer-content">
-          <div class="footer-links">
-            <a href="mailto:williamsodunayo70@gmail.com">
-              <i data-feather="mail"></i>
-              Email
-            </a>
-            <a href="https://github.com/Wills17" target="_blank">
-              <i data-feather="github"></i>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/williams-odunayo" target="_blank">
-              <i data-feather="linkedin"></i>
-              LinkedIn
-            </a>
-            <a href="https://x.com/Wills_Python" target="_blank">
-              <i data-feather="twitter"></i>
-              Twitter
-            </a>
-          </div>
           <p class="copyright">&copy; ${new Date().getFullYear()} Williams Odunayo. All rights reserved.</p>
         </div>
       </footer>
