@@ -6,7 +6,7 @@ class CustomNavbar extends HTMLElement {
         :host {
           display: block;
           position: relative;
-          z-index: 50;
+          z-index: 100;
         }
 
         nav {
@@ -16,9 +16,16 @@ class CustomNavbar extends HTMLElement {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          position: sticky;
+          position: fixed;
           top: 0;
+          left: 0;
+          right: 0;             
+          width: 100%;
+          box-sizing: border-box;
+          overflow-x: hidden;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         }
 
         .logo {
@@ -63,6 +70,7 @@ class CustomNavbar extends HTMLElement {
           border: none;
           color: white;
           cursor: pointer;
+          z-index: 101;
         }
 
         .mobile-menu-btn svg {
@@ -113,8 +121,11 @@ class CustomNavbar extends HTMLElement {
         </a>
 
         <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <!-- Hamburger icon -->
-          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
         </button>
 
         <ul id="nav-links">
@@ -132,7 +143,7 @@ class CustomNavbar extends HTMLElement {
 
     menuBtn.addEventListener("click", () => {
       const open = navLinks.classList.toggle("mobile-open");
-      // Toggle between hamburger and "X"
+      // Toggle between hamburger and X
       menuIcon.innerHTML = open
         ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
         : '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';
