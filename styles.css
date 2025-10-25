@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
+  overflow-x: hidden;
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
 }
@@ -103,3 +104,4 @@ html {
     box-shadow: 0 12px 30px rgba(16, 185, 129, 0.25);
   }
 }
+
