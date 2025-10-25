@@ -1,18 +1,23 @@
 class CustomNavbar extends HTMLElement {
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'open' });
+    const shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = `
       <style>
+        :host {
+          display: block;
+          position: relative;
+          z-index: 50;
+        }
+
         nav {
           background: rgba(17, 24, 39, 0.9);
           backdrop-filter: blur(10px);
-          padding: 1rem 2rem;
+          padding: 1rem 1.5rem;
           display: flex;
           justify-content: space-between;
           align-items: center;
           position: sticky;
           top: 0;
-          z-index: 9999; /* <- Ensures it stays on top */
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -23,7 +28,9 @@ class CustomNavbar extends HTMLElement {
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          text-decoration: none;
         }
+
         .logo-icon {
           color: #6366f1;
         }
@@ -34,13 +41,12 @@ class CustomNavbar extends HTMLElement {
           list-style: none;
           margin: 0;
           padding: 0;
-          transition: all 0.3s ease-in-out;
         }
 
         a {
           color: rgba(255, 255, 255, 0.9);
           text-decoration: none;
-          transition: color 0.2s;
+          transition: color 0.2s ease;
           font-weight: 500;
           display: flex;
           align-items: center;
@@ -51,29 +57,32 @@ class CustomNavbar extends HTMLElement {
           color: #10b981;
         }
 
-        .nav-link.active {
-          color: #10b981;
-        }
-
         .mobile-menu-btn {
           display: none;
           background: none;
           border: none;
           color: white;
           cursor: pointer;
-          z-index: 10000;
+        }
+
+        .mobile-menu-btn svg {
+          width: 28px;
+          height: 28px;
+          stroke: white;
+          stroke-width: 2;
+          fill: none;
+          transition: all 0.2s ease;
         }
 
         @media (max-width: 768px) {
-          nav {
-            position: relative; /* <- Key fix: makes absolute menu visible */
-          }
           .mobile-menu-btn {
             display: block;
           }
+
           ul {
             display: none;
           }
+
           ul.mobile-open {
             display: flex;
             flex-direction: column;
@@ -82,70 +91,53 @@ class CustomNavbar extends HTMLElement {
             left: 0;
             right: 0;
             background: rgba(17, 24, 39, 0.98);
-            padding: 1rem 2rem;
+            padding: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            animation: slideDown 0.25s ease-in-out;
+            animation: fadeDown 0.25s ease;
           }
-        }
 
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
           }
         }
       </style>
 
       <nav>
         <a href="/" class="logo">
-          <i data-feather="cpu" class="logo-icon"></i>
+          <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <rect x="9" y="9" width="6" height="6"/>
+          </svg>
           Williams Odunayo
         </a>
+
         <button class="mobile-menu-btn" aria-label="Toggle menu">
-          <i data-feather="menu"></i>
+          <!-- Hamburger icon -->
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
+
         <ul id="nav-links">
-          <li><a href="#skills" class="nav-link"><i data-feather="tool"></i> Skills</a></li>
-          <li><a href="#projects" class="nav-link"><i data-feather="code"></i> Projects</a></li>
-          <li><a href="#contact" class="nav-link"><i data-feather="mail"></i> Contact</a></li>
-          <li><a href="assets/Williams_Odunayo_CV.pdf" target="_blank"><i data-feather="file-text"></i> CV</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     `;
 
-    // Feather icons inside Shadow DOM
-    const featherScript = document.createElement('script');
-    featherScript.src = "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js";
-    featherScript.onload = () => feather.replace();
-    shadow.appendChild(featherScript);
+    const menuBtn = shadow.querySelector(".mobile-menu-btn");
+    const navLinks = shadow.querySelector("#nav-links");
+    const menuIcon = shadow.querySelector(".menu-icon");
 
-    // Mobile toggle
-    const menuBtn = shadow.querySelector('.mobile-menu-btn');
-    const navLinks = shadow.querySelector('#nav-links');
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('mobile-open');
-      const icon = menuBtn.querySelector('i');
-      icon.setAttribute('data-feather', navLinks.classList.contains('mobile-open') ? 'x' : 'menu');
-      feather.replace();
-    });
-
-    // Highlight active link on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      let current = '';
-      sections.forEach(section => {
-        const top = section.offsetTop - 100;
-        if (scrollY >= top) current = section.getAttribute('id');
-      });
-      shadow.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-      });
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("mobile-open");
+      // Toggle between hamburger and "X"
+      menuIcon.innerHTML = open
+        ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+        : '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';
     });
   }
 }
 
-customElements.define('custom-navbar', CustomNavbar);
+customElements.define("custom-navbar", CustomNavbar);
